@@ -1,0 +1,89 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{url}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\begin{document}
+
+\title{Machine Unlearning in the Era of Large Language Models: Challenges and Methodologies}
+
+\author{\IEEEauthorblockN{Kevin Kayasit Lendvay}
+\IEEEauthorblockA{\textit{Department of Information Systems} \\
+\textit{Eötvös Loránd University}\\
+Budapest, Hungary \\
+ajz5ct@inf.elte.hu}
+}
+
+\maketitle
+
+\section{Introduction}
+Machine learning models, particularly Large Language Models (LLMs), have recently seen an unprecedented proliferation and are 
+trained on massive datasets \cite{wang2026machineunlearningcomprehensivesurvey}. These datasets frequently encompass sensitive 
+personal data, copyrighted materials, or even harmful and illegal information \cite{YAN2025100300, ICLR2025_4556f539}. Increasingly 
+stringent data protection regulations, such as the "Right to be Forgotten" mandated by the GDPR, pose a novel and critical 
+technological challenge for system operators: they must enable the effective removal of user data and its residual influence 
+from already trained models \cite{wang2026machineunlearningcomprehensivesurvey, Liu2025}.
+
+Traditionally, the complete removal of a specific data point's influence would necessitate the complete retraining of the 
+model from scratch (i.e., naive retraining) \cite{wang2026machineunlearningcomprehensivesurvey}. However, in the context of 
+contemporary models comprising billions of parameters, this procedure is computationally prohibitive, highly time-consuming, 
+and often entirely infeasible \cite{7163042, Liu2025}. To address this challenge, the rapidly evolving research domain of machine 
+unlearning has emerged, aiming to develop methodologies capable of removing the influence of targeted data without repeating the 
+arduous training process \cite{wang2026machineunlearningcomprehensivesurvey, 7163042}. The motivation behind this field is 
+twofold: mitigating privacy and security risks (e.g., memory poisoning or data leakage) and ensuring the overall safety and 
+reliability of the models \cite{YAN2025100300}. The paramount importance of this area is evidenced by the fact that in 
+recent years, machine unlearning algorithms, their verification, and their security limitations have become central 
+research directions at top-tier artificial intelligence conferences (e.g., ICLR, ICML, S\&P).
+
+\section{Related Work}
+The literature on machine unlearning can be broadly classified into two primary categories based on the applied techniques 
+and accuracy guarantees: exact unlearning and approximate unlearning methodologies \cite{wang2026machineunlearningcomprehensivesurvey, Liu2025}. 
+
+Exact unlearning guarantees the complete statistical elimination of a given data point's influence from the model, 
+rendering it as if the data had never been included in the training set \cite{wang2026machineunlearningcomprehensivesurvey}. 
+A pioneering approach to this was introduced by Cao and Yang, who transformed learning algorithms into a statistical query (SQ) 
+summation form \cite{7163042}. This transformation allows for the rapid deduction of individual data influences, achieving an 
+asymptotically higher speed compared to traditional retraining \cite{7163042}. Another prevalent and effective exact 
+method is the SISA (Sharded, Isolated, Sliced, and Aggregated) framework \cite{9519428}. SISA divides the dataset 
+into isolated partitions (shards) and slices during training; thus, when deleting a data point, only a small constituent 
+model requires retraining \cite{9519428}. Although SISA drastically accelerates unlearning, literature indicates that this 
+speedup demands a trade-off: the procedure incurs a degradation in model accuracy and significant storage overhead \cite{9519428}.
+
+For modern deep neural networks and LLMs, implementing exact unlearning is cumbersome due to high architectural complexity; 
+consequently, approximate unlearning has become the predominant approach \cite{Liu2025}. Guo et al. developed a certified data 
+removal mechanism for $L_2$-regularized linear models \cite{guo2023certifieddataremovalmachine}. Their method combines 
+a Newton step with loss perturbation to achieve statistical indistinguishability akin to differential privacy, though they 
+acknowledge that end-to-end unlearning in deep networks with non-convex loss functions remains an unresolved 
+challenge \cite{guo2023certifieddataremovalmachine}. 
+
+In the realm of large language models, approximate methods such as gradient ascent or Negative Preference Optimization (NPO) have 
+introduced new challenges. Studies have demonstrated that these techniques often result in merely "spurious unlearning" due to the 
+"squeezing effect". In such cases, while the probability of the target response is reduced, the model simply rephrases the harmful 
+knowledge without actually erasing it \cite{ICLR2026_a63ce8e6}. The Bootstrapping (BS) framework by Li et al. was designed to 
+address this phenomenon by suppressing the model's own high-probability generations at the token (BS-T) and sequence (BS-S) levels, 
+thereby preventing the latent persistence of knowledge \cite{ICLR2026_a63ce8e6}. Furthermore, Liu et al. highlighted that 
+LLM unlearning can be closely connected with model editing and adversarial training; hence, the focus of unlearning must 
+extend beyond mere data deletion to encompass the removal of harmful model capabilities \cite{Liu2025}.
+
+Currently, the evaluation of machine unlearning and the analysis of privacy threats targeting these algorithms have 
+become critical research trajectories \cite{YAN2025100300, ICLR2025_4556f539}. Shi et al. introduced the 
+MUSE (Machine Unlearning Six-Way Evaluation) framework, which assesses algorithms across six dimensions 
+(e.g., verbatim and knowledge memorization, utility preservation, and scalability) \cite{ICLR2025_4556f539}. The MUSE benchmark 
+revealed that although current algorithms (such as NPO or Task Vectors) can impede memorization, they drastically impair the 
+model's general utility and are unsustainable in handling large-scale privacy leakage risks \cite{ICLR2025_4556f539}. 
+This pessimistic yet realistic outlook is corroborated by recent comprehensive literature reviews. Yan et al. meticulously 
+categorized active and passive privacy attacks targeting LLMs and autonomous LLM agents \cite{YAN2025100300}. 
+Their research underscores that defense strategies against membership inference, model stealing, and memory poisoning attacks 
+must be extended across the entire lifecycle of the models—from pre-training to inference \cite{YAN2025100300}.
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}

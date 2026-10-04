@@ -1,0 +1,58 @@
+This is BibTeX, Version 0.99e
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: ML_Unlearning_Lendvay.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: IEEEtran.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 6000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Database file #1: references.bib
+-- IEEEtran.bst version 1.12 (2007/01/11) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+
+Done.
+You've used 8 entries,
+            4024 wiz_defined-function locations,
+            862 strings with 9591 characters,
+and the built_in function-call counts, 8504 in all, are:
+= -- 620
+> -- 325
+< -- 59
++ -- 180
+- -- 79
+* -- 459
+:= -- 1182
+add.period$ -- 16
+call.type$ -- 8
+change.case$ -- 12
+chr.to.int$ -- 141
+cite$ -- 8
+duplicate$ -- 558
+empty$ -- 637
+format.name$ -- 77
+if$ -- 1947
+int.to.chr$ -- 0
+int.to.str$ -- 8
+missing$ -- 123
+newline$ -- 59
+num.names$ -- 12
+pop$ -- 317
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 2
+skip$ -- 622
+stack$ -- 0
+substring$ -- 381
+swap$ -- 493
+text.length$ -- 12
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 8
+warning$ -- 0
+while$ -- 28
+width$ -- 9
+write$ -- 116
