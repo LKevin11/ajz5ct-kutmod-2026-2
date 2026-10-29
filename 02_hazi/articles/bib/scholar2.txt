@@ -1,0 +1,9 @@
+@inproceedings{metsis2006spam,
+  title={Spam filtering with naive bayes-which naive bayes?},
+  author={Metsis, Vangelis and Androutsopoulos, Ion and Paliouras, Georgios},
+  booktitle={CEAS},
+  volume={17},
+  pages={28--69},
+  year={2006},
+  organization={Mountain View, CA}
+}

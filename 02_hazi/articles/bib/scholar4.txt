@@ -1,0 +1,7 @@
+@inproceedings{zhou2016text,
+  title={Text classification improved by integrating bidirectional LSTM with two-dimensional max pooling},
+  author={Zhou, Peng and Qi, Zhenyu and Zheng, Suncong and Xu, Jiaming and Bao, Hongyun and Xu, Bo},
+  booktitle={Proceedings of COLING 2016, the 26th international conference on computational linguistics: technical papers},
+  pages={3485--3495},
+  year={2016}
+}

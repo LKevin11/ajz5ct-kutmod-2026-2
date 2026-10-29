@@ -1,0 +1,17 @@
+# LaTeX fordítás során keletkező ideiglenes fájlok
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.lof
+*.lot
+*.dvi
+
+# OS generált fájlok (opcionális, de hasznos)
+.DS_Store
+Thumbs.db
